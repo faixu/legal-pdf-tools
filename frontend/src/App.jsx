@@ -1,5 +1,6 @@
 import { Routes, Route } from 'react-router-dom'
 import { HelmetProvider } from 'react-helmet-async'
+import { Analytics } from '@vercel/analytics/react'
 import Layout from './components/Layout'
 import PDFTool from './components/PDFTool'
 import PrivacyPolicy from './pages/legal/PrivacyPolicy'
@@ -65,6 +66,7 @@ function App() {
         {/* 404 */}
         <Route path="*" element={<NotFound />} />
       </Routes>
+      <Analytics />
     </HelmetProvider>
   )
 }
