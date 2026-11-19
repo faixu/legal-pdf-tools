@@ -3,7 +3,9 @@ import { Helmet } from 'react-helmet-async'
 import { Upload, FileText, CheckCircle, AlertCircle, Loader2, Download, Settings, Eye, EyeOff, Copy, Trash2, Plus, Minus, Shield, Lock, Brain, Sparkles } from 'lucide-react'
 import AdSlot from './AdSlot'
 
-const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:8000'
+// Use relative path for Vercel rewrite /api/* -> backend service
+// Falls back to VITE_API_URL for local development
+const API_URL = import.meta.env.VITE_API_URL || ''
 
 const positionOptions = [
   { value: 'bottom-right', label: 'Bottom Right' },
@@ -132,7 +134,7 @@ export default function PDFTool({ preset }) {
       formDataApi.append('redact_pii_regex', formData.redactPiiRegex)
       formDataApi.append('redaction_boxes', '[]')
 
-      const response = await fetch(`${API_URL}/api/process-pdf`, {
+      const response = await fetch(`${API_URL ? API_URL : ''}/api/process-pdf`, {
         method: 'POST',
         body: formDataApi,
       })
