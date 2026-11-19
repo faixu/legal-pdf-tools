@@ -2,10 +2,16 @@
 User-agent: *
 Allow: /
 
+# Sitemap
+Sitemap: https://legalbates.vercel.app/sitemap.xml
+
 # Disallow admin/api paths
 Disallow: /api/
 Disallow: /admin/
 Disallow: /private/
 
-# Sitemap
-Sitemap: https://legalbates.vercel.app/sitemap.xml
+# Crawl-delay for polite crawling
+Crawl-delay: 10
+
+# Host
+Host: https://legalbates.vercel.app

@@ -8,7 +8,7 @@ export const seoPages = {
   '/': {
     title: 'Free Legal Bates Stamping & Permanent PDF Redaction Tool',
     description: 'Bates stamp PDFs and permanently redact PII, SSNs, and confidential data. Zero server retention. Process court exhibits, discovery documents, and legal filings in seconds. No signup required.',
-    canonical: 'https://legalpdftools.com/',
+    canonical: 'https://legalbates.vercel.app/',
     h1: 'Free Legal Bates Stamping & Permanent PDF Redaction',
     preset: {
       enableBates: true,
@@ -70,7 +70,7 @@ export const seoPages = {
   '/bates-stamp-court-exhibits': {
     title: 'Court Exhibit Bates Numbering Tool — Free Legal PDF Stamper',
     description: 'Bates stamp court exhibits with EXHIBIT-A- prefix, top-right positioning, and court-compliant formatting. Free, no signup, zero retention. Perfect for trial preparation.',
-    canonical: 'https://legalpdftools.com/bates-stamp-court-exhibits',
+    canonical: 'https://legalbates.vercel.app/bates-stamp-court-exhibits',
     h1: 'Court Exhibit Bates Numbering Tool',
     preset: {
       enableBates: true,
@@ -127,7 +127,7 @@ export const seoPages = {
   '/redact-ssn-from-pdf': {
     title: 'Permanently Redact SSN & PII from PDFs — HIPAA/GLBA Compliant',
     description: 'Automatically detect and permanently redact Social Security Numbers, email addresses, and 12-digit IDs from PDFs. True text-layer destruction. Zero server retention. Free.',
-    canonical: 'https://legalpdftools.com/redact-ssn-from-pdf',
+    canonical: 'https://legalbates.vercel.app/redact-ssn-from-pdf',
     h1: 'Permanently Redact SSN & PII from PDFs',
     preset: {
       enableBates: false,
@@ -185,7 +185,7 @@ export const seoPages = {
   '/bates-number-discovery-documents': {
     title: 'Legal Discovery Production Bates Stamper — PROD- Prefix, 7 Digits',
     description: 'Bates stamp discovery productions with PROD- prefix and 7-digit zero-padding. Handles high-volume document productions. Free, no limits, zero retention.',
-    canonical: 'https://legalpdftools.com/bates-number-discovery-documents',
+    canonical: 'https://legalbates.vercel.app/bates-number-discovery-documents',
     h1: 'Legal Discovery Production Bates Stamper',
     preset: {
       enableBates: true,
@@ -243,7 +243,7 @@ export const seoPages = {
   '/confidential-stamp-pdf': {
     title: 'Add Confidential & Privilege Stamps to PDF — Legal Document Marking',
     description: 'Stamp PDFs with CONFIDENTIAL, PRIVILEGED, or custom protective markings. Bottom-center positioning for maximum visibility. Free, no signup, zero retention.',
-    canonical: 'https://legalpdftools.com/confidential-stamp-pdf',
+    canonical: 'https://legalbates.vercel.app/confidential-stamp-pdf',
     h1: 'Add Confidential & Privilege Stamps to PDF',
     preset: {
       enableBates: true,
@@ -301,7 +301,7 @@ export const seoPages = {
   '/redact-bank-account-numbers-pdf': {
     title: 'Scrub Bank Account Numbers & Financial Data from PDFs',
     description: 'Permanently redact bank account numbers, routing numbers, credit card numbers, and financial identifiers from PDFs. GLBA/PCI-DSS compliant. Free, zero retention.',
-    canonical: 'https://legalpdftools.com/redact-bank-account-numbers-pdf',
+    canonical: 'https://legalbates.vercel.app/redact-bank-account-numbers-pdf',
     h1: 'Scrub Bank Account Numbers & Financial Data from PDFs',
     preset: {
       enableBates: false,
@@ -359,7 +359,7 @@ export const seoPages = {
   '/medical-records-hipaa-pdf-redaction': {
     title: 'HIPAA-Compliant Medical Record Redaction Tool — PHI Scrubbing',
     description: 'Permanently redact Protected Health Information (PHI) from medical records. Auto-detects MRNs, DOBs, SSNs, provider names. HIPAA Safe Harbor compliant. Free, zero retention.',
-    canonical: 'https://legalpdftools.com/medical-records-hipaa-pdf-redaction',
+    canonical: 'https://legalbates.vercel.app/medical-records-hipaa-pdf-redaction',
     h1: 'HIPAA-Compliant Medical Record Redaction Tool',
     preset: {
       enableBates: false,
@@ -417,7 +417,7 @@ export const seoPages = {
   '/law-firm-pdf-exhibit-generator': {
     title: 'Paralegal Batch Exhibit Numbering Utility — Legal Workflow Automation',
     description: 'Batch Bates stamp exhibits for trial binders. Custom prefixes per case, continuation numbering, batch processing. Built for paralegal workflows. Free, no limits.',
-    canonical: 'https://legalpdftools.com/law-firm-pdf-exhibit-generator',
+    canonical: 'https://legalbates.vercel.app/law-firm-pdf-exhibit-generator',
     h1: 'Paralegal Batch Exhibit Numbering Utility',
     preset: {
       enableBates: true,
@@ -478,31 +478,31 @@ export const legalPages = {
   '/privacy-policy': {
     title: 'Privacy Policy — Legal PDF Tools',
     description: 'Our privacy policy covers zero server file retention, browser-local processing, cookie usage, and Google AdSense third-party advertising. No personal data collected.',
-    canonical: 'https://legalpdftools.com/privacy-policy',
+    canonical: 'https://legalbates.vercel.app/privacy-policy',
     h1: 'Privacy Policy',
   },
   '/terms': {
     title: 'Terms of Service — Legal PDF Tools',
     description: 'Terms of service for the free legal PDF processing tool. Disclaimer: this is a technical utility, not legal advice. No warranty, no liability.',
-    canonical: 'https://legalpdftools.com/terms',
+    canonical: 'https://legalbates.vercel.app/terms',
     h1: 'Terms of Service',
   },
   '/about': {
     title: 'About Legal PDF Tools — Free Bates Stamping & Redaction',
     description: 'Learn about our mission to provide free, professional-grade legal document processing tools with zero server retention and maximum privacy.',
-    canonical: 'https://legalpdftools.com/about',
+    canonical: 'https://legalbates.vercel.app/about',
     h1: 'About Legal PDF Tools',
   },
   '/contact': {
     title: 'Contact Us — Legal PDF Tools Support',
     description: 'Contact support for the legal PDF processing tool. Report issues, suggest features, or inquire about enterprise deployment.',
-    canonical: 'https://legalpdftools.com/contact',
+    canonical: 'https://legalbates.vercel.app/contact',
     h1: 'Contact Us',
   },
   '/guides': {
     title: 'Legal Document Processing Guides — Expert Resources',
     description: 'Authoritative guides on Bates numbering, PDF redaction, court exhibit formatting, and HIPAA/PCI compliance for legal professionals.',
-    canonical: 'https://legalpdftools.com/guides',
+    canonical: 'https://legalbates.vercel.app/guides',
     h1: 'Legal Document Processing Guides',
   },
 };
@@ -513,25 +513,25 @@ export const guidePages = {
   '/guides/what-is-bates-numbering-in-legal-discovery': {
     title: 'What Is Bates Numbering in Legal Discovery? Complete Guide',
     description: 'Comprehensive guide to Bates numbering: history, format standards, court rules, discovery production protocols, and modern digital implementation.',
-    canonical: 'https://legalpdftools.com/guides/what-is-bates-numbering-in-legal-discovery',
+    canonical: 'https://legalbates.vercel.app/guides/what-is-bates-numbering-in-legal-discovery',
     h1: 'What Is Bates Numbering in Legal Discovery? Complete Guide',
   },
   '/guides/how-to-permanently-redact-pdf-without-metadata-leaks': {
     title: 'How to Permanently Redact PDFs Without Metadata Leaks',
     description: 'Technical guide to true PDF redaction: text-layer destruction vs. visual masking, metadata sanitization, forensic recovery prevention, and tool validation.',
-    canonical: 'https://legalpdftools.com/guides/how-to-permanently-redact-pdf-without-metadata-leaks',
+    canonical: 'https://legalbates.vercel.app/guides/how-to-permanently-redact-pdf-without-metadata-leaks',
     h1: 'How to Permanently Redact PDFs Without Metadata Leaks',
   },
   '/guides/federal-court-exhibit-stamping-formatting-rules': {
     title: 'Federal Court Exhibit Stamping & Formatting Rules',
     description: 'Federal and state court exhibit formatting requirements: Bates prefix conventions, stamp positioning, font standards, margin rules, and local rule variations.',
-    canonical: 'https://legalpdftools.com/guides/federal-court-exhibit-stamping-formatting-rules',
+    canonical: 'https://legalbates.vercel.app/guides/federal-court-exhibit-stamping-formatting-rules',
     h1: 'Federal Court Exhibit Stamping & Formatting Rules',
   },
   '/guides/hipaa-and-pii-redaction-checklist-for-paralegals': {
     title: 'HIPAA & PII Redaction Checklist for Paralegals',
     description: 'Step-by-step checklist for HIPAA Safe Harbor de-identification, PII detection patterns, medical record redaction workflows, and quality assurance procedures.',
-    canonical: 'https://legalpdftools.com/guides/hipaa-and-pii-redaction-checklist-for-paralegals',
+    canonical: 'https://legalbates.vercel.app/guides/hipaa-and-pii-redaction-checklist-for-paralegals',
     h1: 'HIPAA & PII Redaction Checklist for Paralegals',
   },
 };
