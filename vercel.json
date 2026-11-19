@@ -20,6 +20,12 @@
           "format": "url",
           "env": "BACKEND_URL"
         }
+      ],
+      "routes": [
+        {
+          "src": "/(.*)",
+          "dest": "/index.html"
+        }
       ]
     }
   },
