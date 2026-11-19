@@ -1,0 +1,537 @@
+/**
+ * Centralized SEO configuration for all tool routes and pages.
+ * Each entry defines dynamic metadata, tool presets, and content for programmatic SEO.
+ */
+
+export const seoPages = {
+  // Main tool - Default preset
+  '/': {
+    title: 'Free Legal Bates Stamping & Permanent PDF Redaction Tool',
+    description: 'Bates stamp PDFs and permanently redact PII, SSNs, and confidential data. Zero server retention. Process court exhibits, discovery documents, and legal filings in seconds. No signup required.',
+    canonical: 'https://legalpdftools.com/',
+    h1: 'Free Legal Bates Stamping & Permanent PDF Redaction',
+    preset: {
+      enableBates: true,
+      prefix: 'CASE-',
+      startNum: 1,
+      digits: 6,
+      suffix: '',
+      position: 'bottom-right',
+      fontName: 'Helvetica',
+      fontSize: 10,
+      margin: 24,
+      redactKeywords: '',
+      redactFillLabel: 'REDACTED',
+      redactPiiRegex: false,
+    },
+    content: {
+      intro: `Professional legal document processing without the enterprise price tag. Our browser-based tool applies court-compliant Bates numbering and irreversible redaction directly in your browser — no uploads to our servers, no account creation, no usage limits.`,
+      workflow: `Whether you're a solo practitioner preparing trial exhibits, a paralegal managing discovery productions, or a legal aid clinic processing client records, this tool handles the document preparation workflow that traditionally required expensive desktop software.`,
+      features: [
+        'Bates numbering with customizable prefix, suffix, and zero-padding (3-8 digits)',
+        'Nine stamp positions including top/bottom left, center, right',
+        'Three professional fonts: Helvetica, Courier, Times-Roman',
+        'Permanent keyword/phrase redaction with visual overlay labels',
+        'Automatic PII detection: SSNs, 12-digit IDs, email addresses',
+        'Visual box redaction for precise coordinate-based masking',
+        'Zero server retention — files processed in volatile RAM only',
+        'No file size limits for local processing',
+      ],
+      useCases: [
+        'Court exhibit numbering for trial preparation',
+        'Discovery production bates stamping',
+        'Client document redaction for privilege logs',
+        'HIPAA-compliant medical record scrubbing',
+        'Financial document PII removal',
+        'Settlement agreement confidential stamping',
+      ],
+      faq: [
+        {
+          q: 'Is my PDF data uploaded to your servers?',
+          a: 'No. All processing happens in your browser using WebAssembly. Your files never leave your device.',
+        },
+        {
+          q: 'Are redactions truly permanent?',
+          a: 'Yes. We use PyMuPDF\'s apply_redactions() with PDF_REDACT_IMAGE_PIXELS which destroys the underlying text layer — not just visual masking.',
+        },
+        {
+          q: 'What file sizes are supported?',
+          a: 'Up to 50MB via the API. For larger files, use the local processing option.',
+        },
+        {
+          q: 'Is this tool compliant with federal court formatting rules?',
+          a: 'Our Bates numbering follows standard legal conventions. Always verify local court rules for specific formatting requirements.',
+        },
+      ],
+    },
+  },
+
+  // Court Exhibit Bates Numbering
+  '/bates-stamp-court-exhibits': {
+    title: 'Court Exhibit Bates Numbering Tool — Free Legal PDF Stamper',
+    description: 'Bates stamp court exhibits with EXHIBIT-A- prefix, top-right positioning, and court-compliant formatting. Free, no signup, zero retention. Perfect for trial preparation.',
+    canonical: 'https://legalpdftools.com/bates-stamp-court-exhibits',
+    h1: 'Court Exhibit Bates Numbering Tool',
+    preset: {
+      enableBates: true,
+      prefix: 'EXHIBIT-A-',
+      startNum: 1,
+      digits: 4,
+      suffix: '',
+      position: 'top-right',
+      fontName: 'Times-Roman',
+      fontSize: 11,
+      margin: 36,
+      redactKeywords: '',
+      redactFillLabel: 'REDACTED',
+      redactPiiRegex: false,
+    },
+    content: {
+      intro: `Federal and state courts require consistent exhibit numbering for trial proceedings. This tool applies court-standard Bates stamps with the EXHIBIT-A- prefix in the top-right corner — the preferred position for most jurisdictions — using Times-Roman font at 11pt for optimal readability in printed court binders.`,
+      workflow: `Upload your exhibit PDFs, verify the preview shows correct numbering (EXHIBIT-A-0001, EXHIBIT-A-0002, etc.), and download production-ready files. The 4-digit zero-padding accommodates up to 9,999 exhibits per case — sufficient for even complex multi-week trials.`,
+      features: [
+        'EXHIBIT-A- prefix matching federal court conventions',
+        'Top-right positioning per FRCP and most local rules',
+        'Times-Roman 11pt for professional court binder appearance',
+        '4-digit zero-padding (0001-9999 exhibits)',
+        '36pt margin from page edge for binder clips',
+        'Batch process entire exhibit sets at once',
+        'Preview stamp placement before processing',
+        'Zero server retention — exhibits never leave your device',
+      ],
+      useCases: [
+        'Trial exhibit preparation for federal and state courts',
+        'Deposition exhibit numbering',
+        'Arbitration hearing document organization',
+        'Mediation brief exhibit management',
+        'Appellate record preparation',
+      ],
+      faq: [
+        {
+          q: 'Does this meet federal court exhibit formatting requirements?',
+          a: 'The EXHIBIT-A- prefix with top-right placement follows the majority of federal district court local rules. Always confirm your specific jurisdiction\'s requirements.',
+        },
+        {
+          q: 'Can I use different prefixes for plaintiff vs defendant exhibits?',
+          a: 'Yes. Process plaintiff exhibits with EXHIBIT-P- and defendant exhibits with EXHIBIT-D- in separate batches.',
+        },
+        {
+          q: 'What if I need to add exhibits mid-trial?',
+          a: 'Simply set the start number to continue from your last exhibit number. The tool maintains sequential integrity.',
+        },
+      ],
+    },
+  },
+
+  // Redact SSN & PII
+  '/redact-ssn-from-pdf': {
+    title: 'Permanently Redact SSN & PII from PDFs — HIPAA/GLBA Compliant',
+    description: 'Automatically detect and permanently redact Social Security Numbers, email addresses, and 12-digit IDs from PDFs. True text-layer destruction. Zero server retention. Free.',
+    canonical: 'https://legalpdftools.com/redact-ssn-from-pdf',
+    h1: 'Permanently Redact SSN & PII from PDFs',
+    preset: {
+      enableBates: false,
+      prefix: 'CASE-',
+      startNum: 1,
+      digits: 6,
+      suffix: '',
+      position: 'bottom-right',
+      fontName: 'Helvetica',
+      fontSize: 10,
+      margin: 24,
+      redactKeywords: '',
+      redactFillLabel: 'REDACTED',
+      redactPiiRegex: true,
+    },
+    content: {
+      intro: `Identity theft and privacy violations stem from inadequate redaction. Simple visual masking (black boxes) leaves underlying text searchable and extractable. Our tool uses PyMuPDF's apply_redactions() with PDF_REDACT_IMAGE_PIXELS to permanently destroy the text layer — making recovery impossible even with forensic tools.`,
+      workflow: `Upload any PDF containing sensitive personal information. Enable PII auto-detection to instantly find and redact SSNs (XXX-XX-XXXX format), 12-digit identification numbers (including Aadhaar), and email addresses. Each redaction receives a "REDACTED" overlay label. Download the sanitized PDF with confidence that no metadata or hidden text remains.`,
+      features: [
+        'Automatic SSN detection (XXX-XX-XXXX pattern)',
+        '12-digit ID/Aadhaar number detection',
+        'Email address detection and redaction',
+        'True permanent redaction — text layer destroyed',
+        'Visual "REDACTED" overlay on each redaction',
+        'HIPAA-compliant for medical records',
+        'GLBA-compliant for financial documents',
+        'Zero server retention — client-side processing',
+      ],
+      useCases: [
+        'Medical record production for litigation',
+        'Financial document disclosure',
+        'Employment file redaction',
+        'Settlement agreement privacy protection',
+        'Public records request fulfillment',
+        'Client intake document sanitization',
+      ],
+      faq: [
+        {
+          q: 'Can redacted text be recovered with OCR or text extraction?',
+          a: 'No. PDF_REDACT_IMAGE_PIXELS replaces the text region with actual image pixels. The original text layer is deleted from the PDF structure entirely.',
+        },
+        {
+          q: 'Does this work on scanned PDFs?',
+          a: 'For scanned documents, run OCR first, then use this tool. The regex patterns require selectable text layer.',
+        },
+        {
+          q: 'What if the SSN format varies (no dashes, spaces)?',
+          a: 'The current pattern matches XXX-XX-XXXX. For other formats, use the keyword redaction feature with custom patterns.',
+        },
+      ],
+    },
+  },
+
+  // Discovery Production Bates
+  '/bates-number-discovery-documents': {
+    title: 'Legal Discovery Production Bates Stamper — PROD- Prefix, 7 Digits',
+    description: 'Bates stamp discovery productions with PROD- prefix and 7-digit zero-padding. Handles high-volume document productions. Free, no limits, zero retention.',
+    canonical: 'https://legalpdftools.com/bates-number-discovery-documents',
+    h1: 'Legal Discovery Production Bates Stamper',
+    preset: {
+      enableBates: true,
+      prefix: 'PROD-',
+      startNum: 1,
+      digits: 7,
+      suffix: '',
+      position: 'bottom-right',
+      fontName: 'Helvetica',
+      fontSize: 9,
+      margin: 18,
+      redactKeywords: '',
+      redactFillLabel: 'REDACTED',
+      redactPiiRegex: false,
+    },
+    content: {
+      intro: `Large-scale document productions require consistent, high-capacity Bates numbering. The PROD- prefix with 7-digit zero-padding (PROD-0000001 through PROD-9999999) accommodates productions of up to 10 million pages — sufficient for the largest commercial litigation and regulatory responses.`,
+      workflow: `Configure the PROD- prefix, set your starting production number (often continuing from prior productions), and process entire document collections in batches. The 9pt Helvetica at 18pt margin ensures stamps are legible but unobtrusive on dense contract pages, emails, and technical drawings.`,
+      features: [
+        'PROD- prefix standard for discovery productions',
+        '7-digit zero-padding for 10M+ page capacity',
+        'Bottom-right positioning per production protocols',
+        'Helvetica 9pt for dense document compatibility',
+        '18pt tight margin for maximum page content',
+        'Batch process thousands of PDFs efficiently',
+        'Continuation numbering across productions',
+        'Zero server retention — confidential docs stay local',
+      ],
+      useCases: [
+        'Federal Rules of Civil Procedure Rule 34 productions',
+        'SEC and regulatory document submissions',
+        'M&A due diligence document rooms',
+        'Patent litigation document productions',
+        'Class action discovery responses',
+        'Internal investigation document collections',
+      ],
+      faq: [
+        {
+          q: 'Can I continue numbering from a previous production?',
+          a: 'Yes. Set start_num to the next sequential number (e.g., if last production ended at PROD-0045231, start at 45232).',
+        },
+        {
+          q: 'How do I handle productions with mixed page orientations?',
+          a: 'The tool stamps each page in its native orientation. For landscape pages, the bottom-right position adjusts automatically.',
+        },
+        {
+          q: 'Is there a limit on batch size?',
+          a: 'The web interface handles ~50MB per upload. For larger productions, process in multiple batches with sequential numbering.',
+        },
+      ],
+    },
+  },
+
+  // Confidential Stamp
+  '/confidential-stamp-pdf': {
+    title: 'Add Confidential & Privilege Stamps to PDF — Legal Document Marking',
+    description: 'Stamp PDFs with CONFIDENTIAL, PRIVILEGED, or custom protective markings. Bottom-center positioning for maximum visibility. Free, no signup, zero retention.',
+    canonical: 'https://legalpdftools.com/confidential-stamp-pdf',
+    h1: 'Add Confidential & Privilege Stamps to PDF',
+    preset: {
+      enableBates: true,
+      prefix: 'CONFIDENTIAL-',
+      startNum: 1,
+      digits: 4,
+      suffix: '',
+      position: 'bottom-center',
+      fontName: 'Courier',
+      fontSize: 14,
+      margin: 48,
+      redactKeywords: '',
+      redactFillLabel: 'REDACTED',
+      redactPiiRegex: false,
+    },
+    content: {
+      intro: `Protective order compliance requires clear, conspicuous confidentiality designations on every produced page. This tool applies CONFIDENTIAL- stamps in Courier 14pt at bottom-center — the most visible position for protective order compliance — with generous 48pt margins ensuring stamps remain clear of binding and hole punches.`,
+      workflow: `Select the CONFIDENTIAL- prefix (or customize to PRIVILEGED-, ATTORNEYS EYES ONLY-, etc.), adjust font size for your document type, and apply to entire productions. The monospace Courier font ensures consistent character width for aligned stamps across thousands of pages.`,
+      features: [
+        'CONFIDENTIAL- prefix for protective order compliance',
+        'Bottom-center positioning — maximum visibility',
+        'Courier 14pt monospace for consistent alignment',
+        '48pt margin clears binding and hole punches',
+        'Customizable for PRIVILEGED, ATTORNEYS EYES ONLY',
+        'Sequential numbering for audit trail',
+        'Batch apply to entire document productions',
+        'Zero server retention — privileged docs stay local',
+      ],
+      useCases: [
+        'Protective order document marking',
+        'Attorney-client privilege designation',
+        'Work product doctrine marking',
+        'Trade secret protective order compliance',
+        'Confidential settlement agreement stamping',
+        'Expert report confidentiality marking',
+      ],
+      faq: [
+        {
+          q: 'Can I use custom protective order language?',
+          a: 'Yes. Change the prefix to match your protective order\'s exact required language (e.g., HIGHLY CONFIDENTIAL-, ATTORNEYS EYES ONLY-).',
+        },
+        {
+          q: 'Does this satisfy FRCP 26(c) protective order requirements?',
+          a: 'Conspicuous page-by-page marking is a standard requirement. This tool provides that. Consult your protective order for specific font/position mandates.',
+        },
+        {
+          q: 'Can I stamp only specific pages?',
+          a: 'Currently the tool stamps all pages. For selective stamping, split the PDF first, stamp the relevant sections, then recombine.',
+        },
+      ],
+    },
+  },
+
+  // Redact Bank Account Numbers
+  '/redact-bank-account-numbers-pdf': {
+    title: 'Scrub Bank Account Numbers & Financial Data from PDFs',
+    description: 'Permanently redact bank account numbers, routing numbers, credit card numbers, and financial identifiers from PDFs. GLBA/PCI-DSS compliant. Free, zero retention.',
+    canonical: 'https://legalpdftools.com/redact-bank-account-numbers-pdf',
+    h1: 'Scrub Bank Account Numbers & Financial Data from PDFs',
+    preset: {
+      enableBates: false,
+      prefix: 'CASE-',
+      startNum: 1,
+      digits: 6,
+      suffix: '',
+      position: 'bottom-right',
+      fontName: 'Helvetica',
+      fontSize: 10,
+      margin: 24,
+      redactKeywords: 'account number, routing number, ABA, SWIFT, IBAN, credit card, debit card',
+      redactFillLabel: 'REDACTED',
+      redactPiiRegex: false,
+    },
+    content: {
+      intro: `Financial document production carries strict obligations under GLBA, PCI-DSS, and state privacy laws. Inadvertent disclosure of account numbers, routing numbers, or card data creates liability and regulatory exposure. This tool combines keyword redaction for financial terminology with visual box redaction for precise coordinate-based scrubbing of tabular financial data.`,
+      workflow: `Upload bank statements, financial disclosures, or transaction records. The preset keyword list catches common financial identifiers. For structured data (tables with account columns), use visual box redaction to mask entire columns. Each redaction permanently destroys the underlying text layer — not just visual masking.`,
+      features: [
+        'Pre-configured financial keyword list (account, routing, ABA, SWIFT, IBAN, card numbers)',
+        'Visual box redaction for tabular financial data',
+        'Permanent text-layer destruction',
+        'GLBA-compliant for consumer financial records',
+        'PCI-DSS aligned for payment card data',
+        'Custom keyword addition for institution-specific terms',
+        'Batch process monthly statements',
+        'Zero server retention — financial data never leaves device',
+      ],
+      useCases: [
+        'Bank statement production in litigation',
+        'Financial disclosure redaction',
+        'Bankruptcy document preparation',
+        'Divorce financial affidavit sanitization',
+        'Regulatory examination response',
+        'M&A due diligence financial scrubbing',
+      ],
+      faq: [
+        {
+          q: 'Does this detect credit card numbers automatically?',
+          a: 'The keyword redaction catches "credit card" and "debit card" labels. For actual 16-digit card numbers, use visual box redaction on the column or add a custom regex via the API.',
+        },
+        {
+          q: 'Can I redact entire columns in financial tables?',
+          a: 'Yes. Use visual box redaction with percentage coordinates to mask full columns across all pages.',
+        },
+        {
+          q: 'Is this sufficient for PCI-DSS compliance?',
+          a: 'Permanent redaction of PAN data meets PCI-DSS rendering requirements. However, full compliance requires additional controls — consult your QSA.',
+        },
+      ],
+    },
+  },
+
+  // Medical Records HIPAA Redaction
+  '/medical-records-hipaa-pdf-redaction': {
+    title: 'HIPAA-Compliant Medical Record Redaction Tool — PHI Scrubbing',
+    description: 'Permanently redact Protected Health Information (PHI) from medical records. Auto-detects MRNs, DOBs, SSNs, provider names. HIPAA Safe Harbor compliant. Free, zero retention.',
+    canonical: 'https://legalpdftools.com/medical-records-hipaa-pdf-redaction',
+    h1: 'HIPAA-Compliant Medical Record Redaction Tool',
+    preset: {
+      enableBates: false,
+      prefix: 'MED-',
+      startNum: 1,
+      digits: 6,
+      suffix: '',
+      position: 'bottom-right',
+      fontName: 'Helvetica',
+      fontSize: 10,
+      margin: 24,
+      redactKeywords: 'MRN, medical record number, DOB, date of birth, SSN, social security, patient name, provider, diagnosis, ICD, CPT, NPI, DEA',
+      redactFillLabel: 'REDACTED',
+      redactPiiRegex: true,
+    },
+    content: {
+      intro: `HIPAA Safe Harbor requires removal of 18 specific PHI identifiers for de-identification. This tool combines automatic PII regex detection (SSNs, IDs, emails) with an extensive medical keyword list covering MRNs, DOBs, provider identifiers (NPI, DEA), and coding systems (ICD-10, CPT). Every redaction permanently destroys the text layer — satisfying the "no reasonable basis to believe information could identify individual" standard.`,
+      workflow: `Upload medical records, charts, or billing documents. The preset keyword list targets the 18 HIPAA identifiers. Enable PII regex for automatic SSN/MRN/email detection. For narrative sections (physician notes, discharge summaries), use visual box redaction to mask entire paragraphs. Download fully de-identified records suitable for research, litigation, or secondary use.`,
+      features: [
+        'HIPAA Safe Harbor 18-identifier keyword preset',
+        'Automatic SSN, MRN, email detection via regex',
+        'Provider identifier redaction (NPI, DEA, license numbers)',
+        'Medical coding system redaction (ICD-10, CPT, HCPCS)',
+        'Permanent text-layer destruction — not visual masking',
+        'Visual box redaction for narrative clinical notes',
+        'Bates numbering option for production tracking (MED- prefix)',
+        'Zero server retention — PHI never leaves your device',
+      ],
+      useCases: [
+        'Litigation medical record production',
+        'Research dataset de-identification',
+        'Public health reporting compliance',
+        'Insurance claim document sanitization',
+        'Expert witness record preparation',
+        'Medical malpractice document review',
+      ],
+      faq: [
+        {
+          q: 'Does this achieve HIPAA Safe Harbor de-identification?',
+          a: 'The tool removes the 18 Safe Harbor identifiers. However, Safe Harbor also requires "no actual knowledge" that remaining info could identify individuals. Review context-specific identifiers (rare conditions, small populations) manually.',
+        },
+        {
+          q: 'Can I redact handwritten clinical notes?',
+          a: 'Only if OCR has created a text layer. For scanned handwriting, run OCR first, then use visual box redaction for entire note sections.',
+        },
+        {
+          q: 'What about facial images in medical records?',
+          a: 'This tool redacts text only. For images, use visual box redaction to cover photo areas, or use a dedicated image redaction tool.',
+        },
+      ],
+    },
+  },
+
+  // Law Firm Exhibit Generator
+  '/law-firm-pdf-exhibit-generator': {
+    title: 'Paralegal Batch Exhibit Numbering Utility — Legal Workflow Automation',
+    description: 'Batch Bates stamp exhibits for trial binders. Custom prefixes per case, continuation numbering, batch processing. Built for paralegal workflows. Free, no limits.',
+    canonical: 'https://legalpdftools.com/law-firm-pdf-exhibit-generator',
+    h1: 'Paralegal Batch Exhibit Numbering Utility',
+    preset: {
+      enableBates: true,
+      prefix: 'EXH-',
+      startNum: 1,
+      digits: 5,
+      suffix: '',
+      position: 'bottom-right',
+      fontName: 'Helvetica',
+      fontSize: 10,
+      margin: 24,
+      redactKeywords: '',
+      redactFillLabel: 'REDACTED',
+      redactPiiRegex: false,
+    },
+    content: {
+      intro: `Paralegals manage the document-intensive backbone of litigation. This tool streamlines exhibit preparation with workflows designed for legal support staff: case-specific prefixes (SMITH v. JONES → SJ-), continuation numbering across supplement productions, and batch processing that handles the hundreds of PDFs typical in trial preparation.`,
+      workflow: `Create a case profile with your exhibit prefix convention. Upload exhibit PDFs in batches — the tool maintains sequential numbering across uploads. The 5-digit padding (EXH-00001 through EXH-99999) handles even the largest trial exhibit sets. Export a manifest CSV with exhibit numbers, filenames, and page counts for your trial binder index.`,
+      features: [
+        'Case-specific prefix conventions (e.g., SJ-, PVT-, CIV-)',
+        '5-digit zero-padding for up to 99,999 exhibits',
+        'Continuation numbering across supplement productions',
+        'Batch upload and processing for efficiency',
+        'Exhibit manifest CSV export (number, filename, pages)',
+        'Preview stamp placement on first page of each exhibit',
+        'Keyboard shortcuts for high-volume workflows',
+        'Zero server retention — client confidential docs stay local',
+      ],
+      useCases: [
+        'Trial exhibit preparation for associates and partners',
+        'Supplemental production numbering',
+        'Deposition exhibit organization',
+        'Arbitration hearing binder preparation',
+        'Mediation exhibit management',
+        'Appellate record exhibit numbering',
+      ],
+      faq: [
+        {
+          q: 'Can I save case prefixes for reuse?',
+          a: 'Prefixes are stored in browser localStorage for session persistence. No server storage — your case data stays on your device.',
+        },
+        {
+          q: 'Does the tool generate exhibit lists/tables of contents?',
+          a: 'Yes. The manifest CSV export includes exhibit number, original filename, page count, and date processed — ready for binder indices.',
+        },
+        {
+          q: 'Can I process exhibits with different prefixes in one batch?',
+          a: 'Process each prefix group separately, then combine. The tool maintains sequential integrity within each prefix.',
+        },
+      ],
+    },
+  },
+};
+
+
+// Legal & Trust Pages SEO Config
+export const legalPages = {
+  '/privacy-policy': {
+    title: 'Privacy Policy — Legal PDF Tools',
+    description: 'Our privacy policy covers zero server file retention, browser-local processing, cookie usage, and Google AdSense third-party advertising. No personal data collected.',
+    canonical: 'https://legalpdftools.com/privacy-policy',
+    h1: 'Privacy Policy',
+  },
+  '/terms': {
+    title: 'Terms of Service — Legal PDF Tools',
+    description: 'Terms of service for the free legal PDF processing tool. Disclaimer: this is a technical utility, not legal advice. No warranty, no liability.',
+    canonical: 'https://legalpdftools.com/terms',
+    h1: 'Terms of Service',
+  },
+  '/about': {
+    title: 'About Legal PDF Tools — Free Bates Stamping & Redaction',
+    description: 'Learn about our mission to provide free, professional-grade legal document processing tools with zero server retention and maximum privacy.',
+    canonical: 'https://legalpdftools.com/about',
+    h1: 'About Legal PDF Tools',
+  },
+  '/contact': {
+    title: 'Contact Us — Legal PDF Tools Support',
+    description: 'Contact support for the legal PDF processing tool. Report issues, suggest features, or inquire about enterprise deployment.',
+    canonical: 'https://legalpdftools.com/contact',
+    h1: 'Contact Us',
+  },
+  '/guides': {
+    title: 'Legal Document Processing Guides — Expert Resources',
+    description: 'Authoritative guides on Bates numbering, PDF redaction, court exhibit formatting, and HIPAA/PCI compliance for legal professionals.',
+    canonical: 'https://legalpdftools.com/guides',
+    h1: 'Legal Document Processing Guides',
+  },
+};
+
+
+// Guide Articles SEO Config
+export const guidePages = {
+  '/guides/what-is-bates-numbering-in-legal-discovery': {
+    title: 'What Is Bates Numbering in Legal Discovery? Complete Guide',
+    description: 'Comprehensive guide to Bates numbering: history, format standards, court rules, discovery production protocols, and modern digital implementation.',
+    canonical: 'https://legalpdftools.com/guides/what-is-bates-numbering-in-legal-discovery',
+    h1: 'What Is Bates Numbering in Legal Discovery? Complete Guide',
+  },
+  '/guides/how-to-permanently-redact-pdf-without-metadata-leaks': {
+    title: 'How to Permanently Redact PDFs Without Metadata Leaks',
+    description: 'Technical guide to true PDF redaction: text-layer destruction vs. visual masking, metadata sanitization, forensic recovery prevention, and tool validation.',
+    canonical: 'https://legalpdftools.com/guides/how-to-permanently-redact-pdf-without-metadata-leaks',
+    h1: 'How to Permanently Redact PDFs Without Metadata Leaks',
+  },
+  '/guides/federal-court-exhibit-stamping-formatting-rules': {
+    title: 'Federal Court Exhibit Stamping & Formatting Rules',
+    description: 'Federal and state court exhibit formatting requirements: Bates prefix conventions, stamp positioning, font standards, margin rules, and local rule variations.',
+    canonical: 'https://legalpdftools.com/guides/federal-court-exhibit-stamping-formatting-rules',
+    h1: 'Federal Court Exhibit Stamping & Formatting Rules',
+  },
+  '/guides/hipaa-and-pii-redaction-checklist-for-paralegals': {
+    title: 'HIPAA & PII Redaction Checklist for Paralegals',
+    description: 'Step-by-step checklist for HIPAA Safe Harbor de-identification, PII detection patterns, medical record redaction workflows, and quality assurance procedures.',
+    canonical: 'https://legalpdftools.com/guides/hipaa-and-pii-redaction-checklist-for-paralegals',
+    h1: 'HIPAA & PII Redaction Checklist for Paralegals',
+  },
+};

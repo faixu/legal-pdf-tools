@@ -1,0 +1,25 @@
+# Render Blueprint for Legal PDF Processor Backend
+# Deploy with: render deploy --blueprint render.yaml
+
+services:
+  # Backend API Service
+  - type: web
+    name: legal-pdf-backend
+    runtime: docker
+    dockerfilePath: ./Dockerfile
+    dockerContext: .
+    plan: starter
+    region: oregon
+    healthCheckPath: /health
+    envVars:
+      - key: PYTHONUNBUFFERED
+        value: "1"
+      - key: PORT
+        value: "8000"
+    autoDeploy: true
+
+  # Optional: Add a Redis cache for rate limiting (future enhancement)
+  # - type: redis
+  #   name: legal-pdf-redis
+  #   plan: starter
+  #   region: oregon
