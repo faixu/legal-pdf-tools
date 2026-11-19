@@ -1,17 +1,11 @@
-# Legal PDF Tools - robots.txt
+# LegalBates - robots.txt
 User-agent: *
 Allow: /
-
-# Sitemap
-Sitemap: https://legalpdftools.com/sitemap.xml
 
 # Disallow admin/api paths
 Disallow: /api/
 Disallow: /admin/
 Disallow: /private/
 
-# Crawl-delay for polite crawling
-Crawl-delay: 10
-
-# Host
-Host: https://legalpdftools.com
+# Sitemap
+Sitemap: https://legalbates.vercel.app/sitemap.xml
