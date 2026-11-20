@@ -1,7 +1,6 @@
 import { Helmet } from 'react-helmet-async'
 import { Link } from 'react-router-dom'
 import { FileText, Shield, Scale, Brain, ChevronRight, BookOpen, Clock, CheckCircle } from 'lucide-react'
-import Layout from '../../components/Layout'
 import AdSlot from '../../components/AdSlot'
 
 const guides = [
@@ -40,11 +39,18 @@ const guides = [
 ]
 
 export default function GuidesHub() {
+  const pageConfig = {
+    title: 'Legal Document Processing Guides',
+    description: 'Authoritative guides on Bates numbering, PDF redaction, court exhibit formatting, and HIPAA/PCI compliance for legal professionals.',
+    canonical: 'https://legalbates.vercel.app/guides'
+  };
+
   return (
-    <Layout pageConfig={{ title: 'Legal Document Processing Guides', description: 'Authoritative guides on Bates numbering, PDF redaction, court exhibit formatting, and HIPAA/PCI compliance for legal professionals.' }}>
+    <>
       <Helmet>
         <title>Legal Document Processing Guides — Expert Resources</title>
         <meta name="description" content="Authoritative guides on Bates numbering, PDF redaction, court exhibit formatting, and HIPAA/PCI compliance for legal professionals." />
+        <link rel="canonical" href={pageConfig.canonical} />
       </Helmet>
 
       <article className="px-4 py-12 sm:py-16 lg:py-20">
@@ -124,6 +130,6 @@ export default function GuidesHub() {
           <AdSlot slotName="guides-hub" />
         </div>
       </article>
-    </Layout>
+    </>
   )
 }

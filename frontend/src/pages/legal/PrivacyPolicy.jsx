@@ -1,14 +1,20 @@
 import { Helmet } from 'react-helmet-async'
 import { Link } from 'react-router-dom'
 import { Shield, Lock, Database, Monitor, Mail, ExternalLink } from 'lucide-react'
-import Layout from '../../components/Layout'
 
 export default function PrivacyPolicy() {
+  const pageConfig = {
+    title: 'Privacy Policy',
+    description: 'Privacy policy for Legal PDF Tools covering zero server retention, browser-local processing, cookies, and Google AdSense.',
+    canonical: 'https://legalbates.vercel.app/privacy-policy'
+  };
+
   return (
-    <Layout pageConfig={{ title: 'Privacy Policy', description: 'Privacy policy for Legal PDF Tools covering zero server retention, browser-local processing, cookies, and Google AdSense.' }}>
+    <>
       <Helmet>
         <title>Privacy Policy — Legal PDF Tools</title>
         <meta name="description" content="Our privacy policy covers zero server file retention, browser-local processing, cookie usage, and Google AdSense third-party advertising. No personal data collected." />
+        <link rel="canonical" href={pageConfig.canonical} />
       </Helmet>
 
       <article className="px-4 py-12 sm:py-16 lg:py-20">
@@ -37,7 +43,7 @@ export default function PrivacyPolicy() {
                 <Lock className="h-5 w-5 text-primary-700" aria-hidden="true" />
                 Data We Do Not Collect
               </h2>
-              <ul className="space-y-3 content-text">
+              <ul className="space-y-3 content-text list-none">
                 <li className="flex items-start gap-3"><span className="text-primary-700">•</span> No PDF file content or metadata</li>
                 <li className="flex items-start gap-3"><span className="text-primary-700">•</span> No personally identifiable information (names, emails, case numbers)</li>
                 <li className="flex items-start gap-3"><span className="text-primary-700">•</span> No usage analytics tied to individuals</li>
@@ -87,7 +93,7 @@ export default function PrivacyPolicy() {
               <p className="content-text mb-4">
                 If you explicitly use the backend API endpoint (<code className="bg-neutral-100 px-1.5 rounded font-mono text-sm">/api/process-pdf</code>), files are streamed to our server for processing. Even then:
               </p>
-              <ul className="space-y-2 content-text ml-4">
+              <ul className="space-y-2 content-text ml-4 list-none">
                 <li className="flex items-start gap-2"><span className="text-primary-700">•</span> Files processed in RAM only (<code className="bg-neutral-100 px-1.5 rounded font-mono text-sm">io.BytesIO</code>)</li>
                 <li className="flex items-start gap-2"><span className="text-primary-700">•</span> Zero disk writes — no temporary files</li>
                 <li className="flex items-start gap-2"><span className="text-primary-700">•</span> Response streamed directly back — no retention</li>
@@ -144,6 +150,6 @@ export default function PrivacyPolicy() {
           </div>
         </div>
       </article>
-    </Layout>
+    </>
   )
 }

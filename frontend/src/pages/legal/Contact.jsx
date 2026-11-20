@@ -1,9 +1,14 @@
 import { useState } from 'react'
 import { Helmet } from 'react-helmet-async'
 import { Mail, MessageSquare, CheckCircle, AlertCircle, Loader2, Send } from 'lucide-react'
-import Layout from '../../components/Layout'
 
 export default function Contact() {
+  const pageConfig = {
+    title: 'Contact Us',
+    description: 'Contact support for the legal PDF processing tool. Report issues, suggest features, or inquire about enterprise deployment.',
+    canonical: 'https://legalbates.vercel.app/contact'
+  };
+
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -52,10 +57,11 @@ export default function Contact() {
   }
 
   return (
-    <Layout pageConfig={{ title: 'Contact Us', description: 'Contact support for the legal PDF processing tool. Report issues, suggest features, or inquire about enterprise deployment.' }}>
+    <>
       <Helmet>
         <title>Contact Us — Legal PDF Tools Support</title>
         <meta name="description" content="Contact support for the legal PDF processing tool. Report issues, suggest features, or inquire about enterprise deployment." />
+        <link rel="canonical" href="https://legalbates.vercel.app/contact" />
       </Helmet>
 
       <article className="px-4 py-12 sm:py-16 lg:py-20">
@@ -244,6 +250,6 @@ export default function Contact() {
           </div>
         </div>
       </article>
-    </Layout>
+    </>
   )
 }

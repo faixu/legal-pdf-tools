@@ -2,7 +2,6 @@ import { useEffect, useState } from 'react'
 import { Helmet } from 'react-helmet-async'
 import { Link } from 'react-router-dom'
 import { ArrowLeft, Scale, Shield, FileText, Brain, Clock, CheckCircle } from 'lucide-react'
-import Layout from '../../components/Layout'
 import AdSlot from '../../components/AdSlot'
 import { guidePages } from '../../config/seoPages'
 
@@ -92,7 +91,7 @@ When supplementing productions, numbering must continue seamlessly. If Productio
       { q: 'Can I use letters in Bates numbers?', a: 'Letters in the prefix are standard (EXHIBIT-A-). Letters within the numeric sequence (0001A) are non-standard and discouraged.' },
       { q: 'What if a page is added after stamping?', a: 'Use a suffix (00001-A) or re-stamp the entire production. Never insert a number mid-sequence.' },
       { q: 'Are electronic Bates stamps legally equivalent to physical?', a: 'Yes, provided they meet the same uniqueness and sequentiality requirements. Courts routinely accept digital stamps.' },
-      { q: 'How do I handle landscape pages?', a: "Stamp in the page's native orientation. The 'bottom-right' position rotates with the page." },
+      { q: 'How do I handle landscape pages?', a: 'Stamp in the page\'s native orientation. The "bottom-right" position rotates with the page.' },
     ]
   },
 
@@ -109,9 +108,9 @@ When supplementing productions, numbering must continue seamlessly. If Productio
 - Screen readers and accessibility tools
 - Forensic tools (pdf-parser, origami, peepdf)
 
-True redaction uses PDF redaction annotations (PDF 1.7+ specification) combined with apply_redactions() which:
+True redaction uses PDF redaction annotations (PDF 1.7+ specification) combined with <C>apply_redactions()</C> which:
 1. Removes the text/content objects from the page's content stream
-2. Replaces the region with rasterized pixels (PDF_REDACT_IMAGE_PIXELS)
+2. Replaces the region with rasterized pixels (<C>PDF_REDACT_IMAGE_PIXELS</C>)
 3. Sanitizes metadata references to the removed content
 4. Rebuilds the PDF structure without the redacted objects`
       },
@@ -165,10 +164,10 @@ page.apply_redactions(images=fitz.PDF_REDACT_IMAGE_PIXELS)
 doc.save(output, garbage=4, deflate=True, clean=True)`
         }],
         contentAfter: `Key parameters:
-- garbage=4: Maximum object cleanup (removes unreferenced objects)
-- deflate=True: Compress all streams
-- clean=True: Sanitize structure
-- PDF_REDACT_IMAGE_PIXELS: Rasterize redacted regions — no vector artifacts remain`
+- <C>garbage=4</C>: Maximum object cleanup (removes unreferenced objects)
+- <C>deflate=True</C>: Compress all streams
+- <C>clean=True</C>: Sanitize structure
+- <C>PDF_REDACT_IMAGE_PIXELS</C>: Rasterize redacted regions — no vector artifacts remain`
       },
       {
         heading: 'Validation Checklist',
@@ -195,7 +194,7 @@ doc.save(output, garbage=4, deflate=True, clean=True)`
     faq: [
       { q: 'Can redacted content be recovered from the PDF file?', a: 'No. PDF_REDACT_IMAGE_PIXELS replaces content with pixels. The original text objects are deleted from the PDF structure. Forensic recovery is impossible.' },
       { q: 'Does this work on scanned PDFs?', a: 'Scanned PDFs are images — no text layer to redact. Run OCR first, then redact. For pure image redaction, use visual box coordinates.' },
-      { q: 'What about metadata in the original file?', a: 'The garbage=4, clean=True save options strip orphaned metadata objects. For complete sanitization, also clear document info fields before saving.' },
+      { q: 'What about metadata in the original file?', a: 'The <C>garbage=4, clean=True</C> save options strip orphaned metadata objects. For complete sanitization, also clear document info fields before saving.' },
       { q: 'Is visual verification sufficient?', a: 'Never. Always test with text extraction tools. Visual masking looks identical to true redaction in viewers.' },
     ]
   },
@@ -357,7 +356,7 @@ For trial exhibits specifically, FRCP Rule 43 and local rules control. Key princ
 - Image-only PDFs → OCR first, then redact
 - Searchable PDFs → Direct text redaction
 - Mixed → Process in batches by type
-- Validate tool uses apply_redactions(images=PDF_REDACT_IMAGE_PIXELS)
+- Validate tool uses <C>apply_redactions(images=PDF_REDACT_IMAGE_PIXELS)</C>
 
 **Step 4: Keyword List Construction**
 Build a case-specific keyword list including:
@@ -371,10 +370,10 @@ Build a case-specific keyword list including:
       {
         heading: 'Redaction Execution Checklist',
         content: `**Automated Pass 1: Regex Patterns**
-- SSN: \b\d{3}-\d{2}-\d{4}\b
-- 12-digit IDs: \b\d{4}\s?\d{4}\s?\d{4}\b
-- Email: \b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,}\b
-- Phone: \b\(?\d{3}\)?[-.]?\d{3}[-.]?\d{4}\b
+- <C>SSN: \\b\\d{3}-\\d{2}-\\d{4}\\b</C>
+- <C>12-digit IDs: \\b\\d{4}\\s?\\d{4}\\s?\\d{4}\\b</C>
+- <C>Email: \\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Z|a-z]{2,}\\b</C>
+- <C>Phone: \\b\\(?\\d{3}\\)?[-.]?\\d{3}[-.]?\\d{4}\\b</C>
 - Dates (multiple formats)
 
 **Automated Pass 2: Keyword Search**
@@ -463,12 +462,16 @@ export default function GuideArticle({ slug }) {
 
   if (!guide) {
     return (
-      <Layout pageConfig={{ title: 'Guide Not Found', description: 'The requested guide could not be found.' }}>
+      <>
+        <Helmet>
+          <title>Guide Not Found — Legal PDF Tools</title>
+          <meta name="description" content="The requested guide could not be found." />
+        </Helmet>
         <div className="px-4 py-16 text-center">
           <h1 className="section-heading">Guide Not Found</h1>
           <p className="section-subheading mt-4">The requested guide could not be found.</p>
         </div>
-      </Layout>
+      </>
     )
   }
 
@@ -515,7 +518,7 @@ export default function GuideArticle({ slug }) {
   }
 
   return (
-    <Layout pageConfig={pageConfig}>
+    <>
       <Helmet>
         <title>{guide.title}</title>
         <meta name="description" content={pageConfig.description || guide.hero} />
@@ -533,7 +536,7 @@ export default function GuideArticle({ slug }) {
           datePublished: '2026-11-18',
           dateModified: '2026-11-18',
           author: { '@type': 'Organization', name: 'Legal PDF Tools' },
-          publisher: { '@type': 'Organization', name: 'Legal PDF Tools', logo: { '@type': 'ImageObject', url: 'https://legalpdftools.com/logo.png' } },
+          publisher: { '@type': 'Organization', name: 'Legal PDF Tools', logo: { '@type': 'ImageObject', url: 'https://legalbates.vercel.app/logo.png' } },
         })}</script>
       </Helmet>
 
@@ -630,6 +633,6 @@ export default function GuideArticle({ slug }) {
           <AdSlot slotName="guide-article" />
         </div>
       </article>
-    </Layout>
+    </>
   )
 }
