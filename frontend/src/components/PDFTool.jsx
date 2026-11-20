@@ -395,7 +395,7 @@ export default function PDFTool({ preset }) {
                                 type="number"
                                 value={formData.startNum}
                                 onChange={(e) => handleInputChange('startNum', parseInt(e.target.value) || 1)}
-                                className="input-field flex-1 text-center font-mono"
+                                className="input-number flex-1"
                                 min="1"
                                 max="99999999"
                               />
@@ -429,7 +429,7 @@ export default function PDFTool({ preset }) {
                                   const val = parseInt(e.target.value)
                                   if (val >= 3 && val <= 8) handleInputChange('digits', val)
                                 }}
-                                className="input-field flex-1 text-center font-mono"
+                                className="input-number flex-1"
                                 min="3"
                                 max="8"
                               />
