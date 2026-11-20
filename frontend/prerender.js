@@ -95,7 +95,8 @@ async function prerender() {
   console.log('Starting prerender server...');
   const server = await createServer(distDir, port);
 
-  const executablePath = 'C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe';
+  // Allow Chrome path to be configured via environment variable
+  const executablePath = process.env.CHROME_PATH || 'C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe';
   const browser = await puppeteer.launch({
     headless: 'new',
     executablePath,
