@@ -1,4 +1,4 @@
-import { useEffect, useState, useMemo } from 'react'
+import { useMemo } from 'react'
 import { Helmet } from 'react-helmet-async'
 import { Link } from 'react-router-dom'
 import { ArrowLeft, Scale, Shield, FileText, Brain, Clock, CheckCircle } from 'lucide-react'
@@ -486,14 +486,9 @@ Maintain a redaction log for each production:
 }
 
 export default function GuideArticle({ slug }) {
-  const [guide, setGuide] = useState(null)
-
-  useEffect(() => {
-    const content = guideContent[slug]
-    if (content) {
-      setGuide({ ...content, slug })
-    }
-  }, [slug])
+  // Load guide content synchronously based on slug
+  const guideData = guideContent[slug]
+  const guide = guideData ? { ...guideData, slug } : null
 
   if (!guide) {
     return (
@@ -514,7 +509,7 @@ export default function GuideArticle({ slug }) {
 
   // Extract headings for TOC
   const headings = useMemo(() => {
-    if (!guide.markdown) return []
+    if (!guide?.markdown) return []
     const headingRegex = /^(#{2,3})\s+(.+)$/gm
     const headings = []
     let match
@@ -526,7 +521,7 @@ export default function GuideArticle({ slug }) {
       })
     }
     return headings
-  }, [guide.markdown])
+  }, [guide?.markdown])
 
   const renderMarkdown = () => (
     <div className="prose prose-neutral max-w-none space-y-8">
@@ -535,7 +530,7 @@ export default function GuideArticle({ slug }) {
         remarkPlugins={[remarkGfm]}
         rehypePlugins={[rehypeRaw]}
       >
-        {guide.markdown}
+        {guide?.markdown}
       </ReactMarkdown>
     </div>
   )
@@ -583,7 +578,7 @@ export default function GuideArticle({ slug }) {
               {slug.includes('hipaa') && <span className="px-2.5 py-0.5 bg-orange-100 text-orange-700 text-xs font-medium rounded-full">HIPAA/Compliance</span>}
               <span className="flex items-center gap-1 text-xs text-neutral-500">
                 <Clock className="h-3 w-3" aria-hidden="true" />
-                {guide.markdown && guide.markdown.split(' ').length > 2000 ? '15 min read' : '12 min read'}
+                {guide?.markdown && guide.markdown.split(' ').length > 2000 ? '15 min read' : '12 min read'}
               </span>
             </div>
             <h1 className="section-heading text-balance">{guide.title}</h1>
@@ -635,7 +630,7 @@ export default function GuideArticle({ slug }) {
                 {slug.includes('hipaa') && <span className="px-2.5 py-0.5 bg-orange-100 text-orange-700 text-xs font-medium rounded-full">HIPAA/Compliance</span>}
                 <span className="flex items-center gap-1 text-xs text-neutral-500">
                   <Clock className="h-3 w-3" aria-hidden="true" />
-                  {guide.markdown && guide.markdown.split(' ').length > 2000 ? '15 min read' : '12 min read'}
+                  {guide?.markdown && guide.markdown.split(' ').length > 2000 ? '15 min read' : '12 min read'}
                 </span>
               </div>
               <h1 className="section-heading text-balance">{guide.title}</h1>
