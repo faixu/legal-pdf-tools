@@ -381,11 +381,11 @@ export default function PDFTool({ preset }) {
                         <div className="grid sm:grid-cols-3 gap-4">
                           <div>
                             <label className="label-text" htmlFor="startNum">Start Number</label>
-                            <div className="flex gap-2">
+                            <div className="flex items-stretch gap-2">
                               <button
                                 type="button"
                                 onClick={() => handleNumberChange('startNum', -1)}
-                                className="input-field w-12 flex items-center justify-center hover:bg-neutral-100"
+                                className="btn-number-control w-12 flex items-center justify-center hover:bg-neutral-100 disabled:opacity-50 disabled:cursor-not-allowed"
                                 aria-label="Decrease start number"
                               >
                                 <Minus className="h-4 w-4" aria-hidden="true" />
@@ -402,7 +402,7 @@ export default function PDFTool({ preset }) {
                               <button
                                 type="button"
                                 onClick={() => handleNumberChange('startNum', 1)}
-                                className="input-field w-12 flex items-center justify-center hover:bg-neutral-100"
+                                className="btn-number-control w-12 flex items-center justify-center hover:bg-neutral-100"
                                 aria-label="Increase start number"
                               >
                                 <Plus className="h-4 w-4" aria-hidden="true" />
@@ -411,11 +411,11 @@ export default function PDFTool({ preset }) {
                           </div>
                           <div>
                             <label className="label-text" htmlFor="digits">Zero Padding (3-8)</label>
-                            <div className="flex gap-2">
+                            <div className="flex items-stretch gap-2">
                               <button
                                 type="button"
                                 onClick={() => handleNumberChange('digits', -1)}
-                                className="input-field w-12 flex items-center justify-center hover:bg-neutral-100"
+                                className="btn-number-control w-12 flex items-center justify-center hover:bg-neutral-100 disabled:opacity-50 disabled:cursor-not-allowed"
                                 aria-label="Decrease digits"
                                 disabled={formData.digits <= 3}
                               >
@@ -436,7 +436,7 @@ export default function PDFTool({ preset }) {
                               <button
                                 type="button"
                                 onClick={() => handleNumberChange('digits', 1)}
-                                className="input-field w-12 flex items-center justify-center hover:bg-neutral-100"
+                                className="btn-number-control w-12 flex items-center justify-center hover:bg-neutral-100"
                                 aria-label="Increase digits"
                                 disabled={formData.digits >= 8}
                               >
