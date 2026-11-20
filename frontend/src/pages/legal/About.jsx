@@ -1,14 +1,20 @@
 import { Helmet } from 'react-helmet-async'
 import { Link } from 'react-router-dom'
 import { Shield, Lock, Brain, Zap, Code, Users, Heart, Scale } from 'lucide-react'
-import Layout from '../../components/Layout'
 
 export default function About() {
+  const pageConfig = {
+    title: 'About Legal PDF Tools',
+    description: 'Learn about our mission to provide free, professional-grade legal document processing tools with zero server retention and maximum privacy.',
+    canonical: 'https://legalbates.vercel.app/about'
+  };
+
   return (
-    <Layout pageConfig={{ title: 'About Legal PDF Tools', description: 'Learn about our mission to provide free, professional-grade legal document processing tools with zero server retention and maximum privacy.' }}>
+    <>
       <Helmet>
         <title>About Legal PDF Tools — Free Bates Stamping & Redaction</title>
         <meta name="description" content="Learn about our mission to provide free, professional-grade legal document processing tools with zero server retention and maximum privacy." />
+        <link rel="canonical" href={pageConfig.canonical} />
       </Helmet>
 
       <article className="px-4 py-12 sm:py-16 lg:py-20">
@@ -122,7 +128,7 @@ export default function About() {
               <p className="content-text mb-4">
                 We built specialized tool variants for common legal workflows because we understand one size doesn't fit all:
               </p>
-              <ul className="space-y-3 content-text">
+              <ul className="space-y-3 content-text list-none">
                 <li className="flex items-start gap-3"><span className="text-primary-700">•</span> <strong>Court Exhibits:</strong> EXHIBIT-A- prefix, top-right, Times-Roman — federal court standard</li>
                 <li className="flex items-start gap-3"><span className="text-primary-700">•</span> <strong>Discovery Productions:</strong> PROD- prefix, 7 digits — high-volume document productions</li>
                 <li className="flex items-start gap-3"><span className="text-primary-700">•</span> <strong>PII Redaction:</strong> Auto-detect SSN, Aadhaar, emails — HIPAA/GLBA aligned</li>
@@ -159,6 +165,6 @@ export default function About() {
           </div>
         </div>
       </article>
-    </Layout>
+    </>
   )
 }
