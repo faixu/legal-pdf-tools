@@ -20,12 +20,6 @@
           "format": "url",
           "env": "BACKEND_URL"
         }
-      ],
-      "routes": [
-        {
-          "src": "/(.*)",
-          "dest": "/index.html"
-        }
       ]
     }
   },
@@ -34,6 +28,30 @@
       "source": "/api/(.*)",
       "destination": {
         "service": "backend"
+      }
+    },
+    {
+      "source": "/assets/(.*)",
+      "destination": {
+        "service": "frontend"
+      }
+    },
+    {
+      "source": "/favicon.svg",
+      "destination": {
+        "service": "frontend"
+      }
+    },
+    {
+      "source": "/robots.txt",
+      "destination": {
+        "service": "frontend"
+      }
+    },
+    {
+      "source": "/sitemap.xml",
+      "destination": {
+        "service": "frontend"
       }
     },
     {
