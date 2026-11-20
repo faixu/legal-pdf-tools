@@ -59,17 +59,28 @@ export default function PDFTool({ preset }) {
   }, [formData.enableBates, formData.prefix, formData.startNum, formData.digits, formData.suffix])
 
   const handleFileSelect = useCallback((selectedFile) => {
-    if (selectedFile && selectedFile.type === 'application/pdf') {
-      if (selectedFile.size > 50 * 1024 * 1024) {
-        setError('File size exceeds 50MB limit')
-        return
-      }
-      setFile(selectedFile)
-      setError(null)
-      setResult(null)
-    } else if (selectedFile) {
+    if (!selectedFile) return
+
+    // Client-side validation (defense in depth)
+    if (selectedFile.type !== 'application/pdf') {
       setError('Please select a PDF file')
+      return
     }
+
+    if (selectedFile.size > 50 * 1024 * 1024) {
+      setError('File size exceeds 50MB limit')
+      return
+    }
+
+    // Check file extension
+    if (!selectedFile.name.toLowerCase().endsWith('.pdf')) {
+      setError('File must have .pdf extension')
+      return
+    }
+
+    setFile(selectedFile)
+    setError(null)
+    setResult(null)
   }, [])
 
   const handleDragOver = useCallback((e) => {
