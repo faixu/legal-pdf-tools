@@ -122,19 +122,31 @@ async function prerender() {
 
       await page.goto(url, { waitUntil: 'networkidle0', timeout: 60000 });
 
-      // Wait for React to hydrate - try multiple strategies
-      try {
-        await page.waitForFunction(() => {
-          const root = document.getElementById('root');
-          return root && (root.children.length > 0 || root.innerHTML.trim().length > 0);
-        }, { timeout: 30000 });
-      } catch (e) {
-        console.log(`  Warning: Root hydration check timed out, proceeding anyway...`);
+      // Wait for React to hydrate - try multiple strategies with longer timeout
+      for (let attempt = 0; attempt < 3; attempt++) {
+        try {
+          await page.waitForFunction(() => {
+            const root = document.getElementById('root');
+            return root && root.innerHTML.trim().length > 100;
+          }, { timeout: 45000 });
+          break;
+        } catch (e) {
+          console.log(`  Attempt ${attempt + 1}: Root hydration check timed out, retrying...`);
+          await new Promise(r => setTimeout(r, 5000));
+        }
       }
 
       // Debug: log what we actually got
-      const rootHTML = await page.evaluate(() => document.getElementById('root')?.innerHTML || 'EMPTY');
+      let rootHTML = await page.evaluate(() => document.getElementById('root')?.innerHTML || 'EMPTY');
       console.log(`  Root HTML length: ${rootHTML.length} chars`);
+
+      // If still empty, wait a bit more and try again
+      if (rootHTML.length < 100) {
+        console.log('  Root still empty, waiting longer...');
+        await new Promise(r => setTimeout(r, 10000));
+        rootHTML = await page.evaluate(() => document.getElementById('root')?.innerHTML || 'EMPTY');
+        console.log(`  Root HTML length after wait: ${rootHTML.length} chars`);
+      }
 
       const html = await page.content();
 
