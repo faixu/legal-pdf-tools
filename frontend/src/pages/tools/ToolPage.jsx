@@ -1,5 +1,6 @@
 import { useMemo } from 'react'
 import { Helmet } from 'react-helmet-async'
+import { useParams } from 'react-router-dom'
 import { Layout, PDFTool } from '../../components'
 import { seoPages } from '../../config/seoPages'
 import {
@@ -399,7 +400,8 @@ const workflowDetails = {
   },
 }
 
-export default function ToolPage({ slug }) {
+export default function ToolPage() {
+  const { slug } = useParams()
   const workflow = workflowDetails[slug]
   const baseConfig = seoPages[`/${slug}`]
   const canonical = `https://legalpdftools.com/${slug}`
