@@ -430,27 +430,27 @@ export default function ToolPage() {
 
   const renderMarkdown = () => (
     <div className="prose prose-neutral max-w-none space-y-8">
-      <div dangerouslySetInnerHTML={{ __html: seoPages[`/${slug}`]?.content?.intro || '' }} />
-      <div dangerouslySetInnerHTML={{ __html: seoPages[`/${slug}`]?.content?.workflow || '' }} />
-      <div dangerouslySetInnerHTML={{ __html: seoPages[`/${slug}`]?.content?.features?.join('<br>') || '' }} />
-      <div dangerouslySetInnerHTML={{ __html: seoPages[`/${slug}`]?.content?.useCases?.join('<br>') || '' }} />
-      <div dangerouslySetInnerHTML={{ __html: seoPages[`/${slug}`]?.content?.faq?.map(f => `<dt>${f.q}</dt><dd>${f.a}</dd>`).join('') || '' }} />
+      <div dangerouslySetInnerHTML={{ __html: seoPages[`/tools/${slug}`]?.content?.intro || '' }} />
+      <div dangerouslySetInnerHTML={{ __html: seoPages[`/tools/${slug}`]?.content?.workflow || '' }} />
+      <div dangerouslySetInnerHTML={{ __html: seoPages[`/tools/${slug}`]?.content?.features?.join('<br>') || '' }} />
+      <div dangerouslySetInnerHTML={{ __html: seoPages[`/tools/${slug}`]?.content?.useCases?.join('<br>') || '' }} />
+      <div dangerouslySetInnerHTML={{ __html: seoPages[`/tools/${slug}`]?.content?.faq?.map(f => `<dt>${f.q}</dt><dd>${f.a}</dd>`).join('') || '' }} />
     </div>
   )
 
   return (
     <Layout pageConfig={pageConfig}>
       <Helmet>
-        <title>{seoPages[`/${slug}`]?.title || workflow.tagline}</title>
-        <meta name="description" content={seoPages[`/${slug}`]?.description || workflow.tagline} />
+        <title>{seoPages[`/tools/${slug}`]?.title || workflow.tagline}</title>
+        <meta name="description" content={seoPages[`/tools/${slug}`]?.description || workflow.tagline} />
         <link rel="canonical" href={canonical} />
-        <meta property="og:title" content={seoPages[`/${slug}`]?.title || workflow.tagline} />
-        <meta property="og:description" content={seoPages[`/${slug}`]?.description || workflow.tagline} />
+        <meta property="og:title" content={seoPages[`/tools/${slug}`]?.title || workflow.tagline} />
+        <meta property="og:description" content={seoPages[`/tools/${slug}`]?.description || workflow.tagline} />
         <meta property="og:type" content="website" />
         <meta property="og:url" content={canonical} />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content={seoPages[`/${slug}`]?.title || workflow.tagline} />
-        <meta name="twitter:description" content={seoPages[`/${slug}`]?.description || workflow.tagline} />
+        <meta name="twitter:title" content={seoPages[`/tools/${slug}`]?.title || workflow.tagline} />
+        <meta name="twitter:description" content={seoPages[`/tools/${slug}`]?.description || workflow.tagline} />
         <script type="application/ld+json">{JSON.stringify(jsonLd)}</script>
       </Helmet>
 
@@ -462,7 +462,7 @@ export default function ToolPage() {
             <span aria-hidden="true">/</span>
             <Link to="/tools" className="hover:text-primary-700">Tools</Link>
             <span aria-hidden="true">/</span>
-            <span className="text-neutral-900 font-medium" aria-current="page">{seoPages[`/${slug}`]?.title || workflow.tagline}</span>
+            <span className="text-neutral-900 font-medium" aria-current="page">{seoPages[`/tools/${slug}`]?.title || workflow.tagline}</span>
           </nav>
 
           {/* Header */}
@@ -481,7 +481,7 @@ export default function ToolPage() {
                 2 min read
               </span>
             </div>
-            <h1 className="section-heading text-balance">{seoPages[`/${slug}`]?.title || workflow.tagline}</h1>
+            <h1 className="section-heading text-balance">{seoPages[`/tools/${slug}`]?.title || workflow.tagline}</h1>
             <p className="section-subheading mt-4 content-text">{workflow.tagline}</p>
           </header>
 
