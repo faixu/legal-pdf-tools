@@ -44,3 +44,4 @@ frontend/test_*.pdf
 *.pem
 .vercel
 .netlify
+.vercel
