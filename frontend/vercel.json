@@ -8,10 +8,6 @@
       "destination": "/api/$1"
     },
     {
-      "source": "/tools/(.*)",
-      "destination": "/index.html"
-    },
-    {
       "source": "/(.*)",
       "destination": "/index.html"
     }
