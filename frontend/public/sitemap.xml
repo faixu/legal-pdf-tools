@@ -3,110 +3,166 @@
         xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <!-- Main Tool Pages -->
   <url>
-    <loc>https://legalbates.vercel.app/</loc>
-    <lastmod>2026-11-18</lastmod>
+    <loc>https://legalpdftools.com/</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://legalbates.vercel.app/bates-stamp-court-exhibits</loc>
-    <lastmod>2026-11-18</lastmod>
+    <loc>https://legalpdftools.com/tools</loc>
+    <lastmod>2026-11-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://legalpdftools.com/bates-stamp-court-exhibits</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://legalbates.vercel.app/redact-ssn-from-pdf</loc>
-    <lastmod>2026-11-18</lastmod>
+    <loc>https://legalpdftools.com/redact-ssn-from-pdf</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://legalbates.vercel.app/bates-number-discovery-documents</loc>
-    <lastmod>2026-11-18</lastmod>
+    <loc>https://legalpdftools.com/bates-number-discovery-documents</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://legalbates.vercel.app/confidential-stamp-pdf</loc>
-    <lastmod>2026-11-18</lastmod>
+    <loc>https://legalpdftools.com/confidential-stamp-pdf</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://legalbates.vercel.app/redact-bank-account-numbers-pdf</loc>
-    <lastmod>2026-11-18</lastmod>
+    <loc>https://legalpdftools.com/redact-bank-account-numbers-pdf</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://legalbates.vercel.app/medical-records-hipaa-pdf-redaction</loc>
-    <lastmod>2026-11-18</lastmod>
+    <loc>https://legalpdftools.com/medical-records-hipaa-pdf-redaction</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://legalbates.vercel.app/law-firm-pdf-exhibit-generator</loc>
-    <lastmod>2026-11-18</lastmod>
+    <loc>https://legalpdftools.com/law-firm-pdf-exhibit-generator</loc>
+    <lastmod>2026-11-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Tools Hub & Individual Tool Pages -->
+  <url>
+    <loc>https://legalpdftools.com/tools</loc>
+    <lastmod>2026-11-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://legalpdftools.com/tools/bates-stamp-court-exhibits</loc>
+    <lastmod>2026-11-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://legalpdftools.com/tools/redact-ssn-from-pdf</loc>
+    <lastmod>2026-11-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://legalpdftools.com/tools/bates-number-discovery-documents</loc>
+    <lastmod>2026-11-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://legalpdftools.com/tools/confidential-stamp-pdf</loc>
+    <lastmod>2026-11-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://legalpdftools.com/tools/redact-bank-account-numbers-pdf</loc>
+    <lastmod>2026-11-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://legalpdftools.com/tools/medical-records-hipaa-pdf-redaction</loc>
+    <lastmod>2026-11-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://legalpdftools.com/tools/law-firm-pdf-exhibit-generator</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <!-- Legal & Trust Pages -->
   <url>
-    <loc>https://legalbates.vercel.app/privacy-policy</loc>
-    <lastmod>2026-11-18</lastmod>
+    <loc>https://legalpdftools.com/privacy-policy</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://legalbates.vercel.app/terms</loc>
-    <lastmod>2026-11-18</lastmod>
+    <loc>https://legalpdftools.com/terms</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://legalbates.vercel.app/about</loc>
-    <lastmod>2026-11-18</lastmod>
+    <loc>https://legalpdftools.com/about</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://legalbates.vercel.app/contact</loc>
-    <lastmod>2026-11-18</lastmod>
+    <loc>https://legalpdftools.com/contact</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
 
   <!-- Guides Hub -->
   <url>
-    <loc>https://legalbates.vercel.app/guides</loc>
-    <lastmod>2026-11-18</lastmod>
+    <loc>https://legalpdftools.com/guides</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <!-- Guide Articles -->
   <url>
-    <loc>https://legalbates.vercel.app/guides/what-is-bates-numbering-in-legal-discovery</loc>
-    <lastmod>2026-11-18</lastmod>
+    <loc>https://legalpdftools.com/guides/what-is-bates-numbering-in-legal-discovery</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://legalbates.vercel.app/guides/how-to-permanently-redact-pdf-without-metadata-leaks</loc>
-    <lastmod>2026-11-18</lastmod>
+    <loc>https://legalpdftools.com/guides/how-to-permanently-redact-pdf-without-metadata-leaks</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://legalbates.vercel.app/guides/federal-court-exhibit-stamping-formatting-rules</loc>
-    <lastmod>2026-11-18</lastmod>
+    <loc>https://legalpdftools.com/guides/federal-court-exhibit-stamping-formatting-rules</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://legalbates.vercel.app/guides/hipaa-and-pii-redaction-checklist-for-paralegals</loc>
-    <lastmod>2026-11-18</lastmod>
+    <loc>https://legalpdftools.com/guides/hipaa-and-pii-redaction-checklist-for-paralegals</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>

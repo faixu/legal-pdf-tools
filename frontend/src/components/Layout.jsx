@@ -17,6 +17,8 @@ const toolLinks = [
   { name: 'Bank/Financial Redact', href: '/redact-bank-account-numbers-pdf', description: 'Financial keyword presets' },
   { name: 'HIPAA Medical Records', href: '/medical-records-hipaa-pdf-redaction', description: 'PHI Safe Harbor keywords' },
   { name: 'Paralegal Exhibit Gen', href: '/law-firm-pdf-exhibit-generator', description: 'Case prefixes, batch export' },
+
+
 ]
 
 const legalLinks = [

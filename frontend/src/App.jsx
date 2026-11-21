@@ -8,6 +8,8 @@ import About from './pages/legal/About'
 import Contact from './pages/legal/Contact'
 import GuidesHub from './pages/guides/GuidesHub'
 import GuideArticle from './pages/guides/GuideArticle'
+import ToolsHub from './pages/tools/ToolsHub'
+import ToolPage from './pages/tools/ToolPage'
 import NotFound from './pages/NotFound'
 import { seoPages, legalPages, guidePages } from './config/seoPages'
 
@@ -19,7 +21,27 @@ function App() {
   return (
     <HelmetProvider>
       <Routes>
-        {/* Tool routes with dynamic SEO */}
+        {/* Tools Hub */}
+        <Route
+          path="/tools"
+          element={
+            <Layout pageConfig={{ title: 'Legal Document Processing Tools', description: 'Free, professional-grade legal document processing tools for Bates stamping, PDF redaction, and compliance. Zero server retention, no signup required.' }}>
+              <ToolsHub />
+            </Layout>
+          }
+        />
+
+        {/* Individual Tool Pages */}
+        <Route
+          path="/tools/:slug"
+          element={
+            <Layout pageConfig={{ title: 'Legal Document Processing Tool', description: 'Free legal document processing tool.' }}>
+              <ToolPage />
+            </Layout>
+          }
+        />
+
+        {/* Tool routes with dynamic SEO (legacy direct routes) */}
         {allToolRoutes.map((path) => (
           <Route
             key={path}
