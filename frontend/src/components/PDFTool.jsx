@@ -222,10 +222,50 @@ export default function PDFTool({ preset }) {
         <section className="relative px-4 py-12 sm:py-16 lg:py-20 bg-white">
           <div className="mx-auto max-w-7xl">
             <div className="text-center mb-10 animate-fade-in">
-              <h1 className="section-heading">Bates Stamp & Permanently Redact PDFs</h1>
+              <h1 className="section-heading">Redact. Stamp. Done. Zero Uploads. Zero Risk.</h1>
               <p className="section-subheading">
-                Professional legal document processing in your browser. Zero server retention. No signup. Free forever.
+                The only browser-based redaction tool that actually destroys data— not masks it.
               </p>
+            </div>
+
+            {/* High-Converting Value Props */}
+            <div className="mb-16">
+              <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div className="card bg-primary-50 border-primary-100 p-6">
+                  <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-primary-100 mb-4">
+                    <Shield className="h-5 w-5 text-primary-700" aria-hidden="true" />
+                  </div>
+                  <h3 className="font-semibold text-neutral-900 mb-2">True Redaction</h3>
+                  <p className="text-neutral-600 text-sm">
+                    PyMuPDF <code className="bg-neutral-100 px-1.5 rounded font-mono text-sm">apply_redactions(PDF_REDACT_IMAGE_PIXELS)</code> destroys text vectors, not masks them.
+                  </p>
+                </div>
+                <div className="card bg-green-50 border-green-100 p-6">
+                  <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-green-100 mb-4">
+                    <Lock className="h-5 w-5 text-green-700" aria-hidden="true" />
+                  </div>
+                  <h3 className="font-semibold text-neutral-900 mb-2">Custom Overlays</h3>
+                  <p className="text-neutral-600 text-sm">
+                    <code className="bg-neutral-100 px-1.5 rounded font-mono text-sm">PRIVILEGED</code>, <code className="bg-neutral-100 px-1.5 rounded font-mono text-sm">FOIA b(6)</code>, <code className="bg-neutral-100 px-1.5 rounded font-mono text-sm">HIPAA PHI</code>, or your custom exemption code—rasterized into pixels.
+                  </p>
+                </div>
+                <div className="card bg-purple-50 border-purple-100 p-6">
+                  <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-purple-100 mb-4">
+                    <Lock className="h-5 w-5 text-purple-700" aria-hidden="true" />
+                  </div>
+                  <h3 className="font-semibold text-neutral-900 mb-2">Native Bates Stamping</h3>
+                  <p className="text-neutral-600 text-sm">
+                    <code className="bg-neutral-100 px-1.5 rounded font-mono text-sm">EXHIBIT-A-0001</code>, <code className="bg-neutral-100 px-1.5 rounded font-mono text-sm">PROD-0000001</code>, <code className="bg-neutral-100 px-1.5 rounded font-mono text-sm">CONF-0001</code>, <code className="bg-neutral-100 px-1.5 rounded font-mono text-sm">MED-000001</code> — native, one pass.
+                  </p>
+                </div>
+                <div className="card bg-orange-50 border-orange-100 p-6">
+                  <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-orange-100 mb-4">
+                    <Brain className="h-5 w-5 text-orange-700" aria-hidden="true" />
+                  </div>
+                  <h3 className="font-semibold text-neutral-900 mb-2">Zero Retention</h3>
+                  <p className="text-neutral-600 text-sm">Client-side processing, no server uploads. Files never leave your browser.</p>
+                </div>
+              </div>
             </div>
 
             <div className="grid lg:grid-cols-2 gap-8 items-start">
