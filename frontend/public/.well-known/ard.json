@@ -1,0 +1,67 @@
+{
+  "version": "1.0",
+  "name": "LegalPDF Tools",
+  "description": "Free client-side Bates stamping and permanent PDF redaction tool for legal professionals",
+  "url": "https://legalbates.vercel.app",
+  "version": "1.0.0",
+  "contact": {
+    "email": "support@legalpdftools.com",
+    "url": "https://legalbates.vercel.app/contact"
+  },
+  "capabilities": [
+    "pdf-processing",
+    "bates-stamping",
+    "pdf-redaction",
+    "pii-detection"
+  ],
+  "endpoints": {
+    "process": {
+      "url": "/api/process-pdf",
+      "method": "POST",
+      "description": "Process PDF with Bates stamping and/or redaction",
+      "contentType": "multipart/form-data"
+    }
+  },
+  "tools": [
+    {
+      "name": "Bates Stamp & Redact",
+      "path": "/",
+      "description": "Main tool with live preview"
+    },
+    {
+      "name": "Court Exhibit Bates Stamping",
+      "path": "/bates-stamp-court-exhibits",
+      "description": "EXHIBIT-A- prefix, top-right, Times-Roman"
+    },
+    {
+      "name": "Redact SSN & PII",
+      "path": "/redact-ssn-from-pdf",
+      "description": "Auto-detect SSN, Aadhaar, emails"
+    },
+    {
+      "name": "Discovery Production Bates",
+      "path": "/bates-number-discovery-documents",
+      "description": "PROD- prefix, 7 digits"
+    },
+    {
+      "name": "Confidential Stamps",
+      "path": "/confidential-stamp-pdf",
+      "description": "CONFIDENTIAL- bottom-center"
+    },
+    {
+      "name": "Financial Redaction",
+      "path": "/redact-bank-account-numbers-pdf",
+      "description": "Account, routing, SWIFT keywords"
+    },
+    {
+      "name": "HIPAA Medical Records",
+      "path": "/medical-records-hipaa-pdf-redaction",
+      "description": "PHI Safe Harbor keywords"
+    },
+    {
+      "name": "Paralegal Exhibit Generator",
+      "path": "/law-firm-pdf-exhibit-generator",
+      "description": "Case prefixes, batch export"
+    }
+  ]
+}

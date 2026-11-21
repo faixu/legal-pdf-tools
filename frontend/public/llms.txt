@@ -1,0 +1,35 @@
+# LegalPDF Tools
+
+Free client-side Bates stamping and permanent PDF redaction tool for legal professionals.
+
+## Tools
+
+- [Bates Stamp & Redact PDFs](/) - Main tool with live preview
+- [Court Exhibit Bates Stamping](/bates-stamp-court-exhibits) - EXHIBIT-A- prefix, top-right, Times-Roman
+- [Redact SSN & PII](/redact-ssn-from-pdf) - Auto-detect SSN, Aadhaar, emails
+- [Discovery Production Bates](/bates-number-discovery-documents) - PROD- prefix, 7 digits
+- [Confidential Stamps](/confidential-stamp-pdf) - CONFIDENTIAL- bottom-center
+- [Financial Redaction](/redact-bank-account-numbers-pdf) - Account, routing, SWIFT keywords
+- [HIPAA Medical Records](/medical-records-hipaa-pdf-redaction) - PHI Safe Harbor keywords
+- [Paralegal Exhibit Generator](/law-firm-pdf-exhibit-generator) - Case prefixes, batch export
+
+## Guides
+
+- [What Is Bates Numbering in Legal Discovery?](/guides/what-is-bates-numbering-in-legal-discovery)
+- [How to Permanently Redact PDFs Without Metadata Leaks](/guides/how-to-permanently-redact-pdf-without-metadata-leaks)
+- [Federal Court Exhibit Stamping & Formatting Rules](/guides/federal-court-exhibit-stamping-formatting-rules)
+- [HIPAA & PII Redaction Checklist for Paralegals](/guides/hipaa-and-pii-redaction-checklist-for-paralegals)
+
+## Legal
+
+- [Privacy Policy](/privacy-policy) - Zero server retention, no data collection
+- [Terms of Service](/terms) - Not legal advice disclaimer
+- [About](/about) - Mission and technology stack
+- [Contact](/contact) - Support and feature requests
+
+## API
+
+- `POST /api/process-pdf` - Process PDF with Bates stamping and/or redaction
+  - Accepts: multipart/form-data with PDF file
+  - Returns: Processed PDF with applied stamps/redactions
+  - Zero server retention - files processed in memory

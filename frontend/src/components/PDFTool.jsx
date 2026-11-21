@@ -259,7 +259,7 @@ export default function PDFTool({ preset }) {
                   <p className="text-lg font-medium text-neutral-900 mb-1">
                     {file ? `Selected: ${file.name}` : 'Drag & drop a PDF file here'}
                   </p>
-                  <p className="text-neutral-500 text-sm mb-4">
+                  <p className="text-neutral-500 text-sm mb-4 min-h-[1.25rem]" aria-live="polite">
                     {file
                       ? `${(file.size / 1024 / 1024).toFixed(2)} MB • Ready to process`
                       : 'Up to 50MB • No server upload • Processed locally'}
