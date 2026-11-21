@@ -26,6 +26,15 @@ const routes = [
   '/terms',
   '/about',
   '/contact',
+  // Tool pages with /tools/ prefix
+  '/tools/bates-stamp-court-exhibits',
+  '/tools/redact-ssn-from-pdf',
+  '/tools/bates-number-discovery-documents',
+  '/tools/confidential-stamp-pdf',
+  '/tools/redact-bank-account-numbers-pdf',
+  '/tools/medical-records-hipaa-pdf-redaction',
+  '/tools/law-firm-pdf-exhibit-generator',
+  '/tools',
 ];
 
 // Simple HTTP server to serve dist folder

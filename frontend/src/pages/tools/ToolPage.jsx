@@ -403,8 +403,8 @@ const workflowDetails = {
 export default function ToolPage() {
   const { slug } = useParams()
   const workflow = workflowDetails[slug]
-  const baseConfig = seoPages[`/${slug}`]
-  const canonical = `https://legalpdftools.com/${slug}`
+  const baseConfig = seoPages[`/tools/${slug}`]
+  const canonical = `https://legalpdftools.com/tools/${slug}`
 
   if (!workflow) {
     return (
@@ -418,14 +418,14 @@ export default function ToolPage() {
   }
 
   const pageConfig = {
-    title: seoPages[`/${slug}`]?.title || workflow.tagline,
-    description: seoPages[`/${slug}`]?.description || workflow.tagline,
-    canonical,
+    title: seoPages[`/tools/${slug}`]?.title || workflow.tagline,
+    description: seoPages[`/tools/${slug}`]?.description || workflow.tagline,
+    canonical: `https://legalpdftools.com/tools/${slug}`,
   }
 
   const jsonLd = useMemo(() => ({
     ...workflow.schema,
-    url: canonical,
+    url: `https://legalpdftools.com/tools/${slug}`,
   }), [slug])
 
   const renderMarkdown = () => (
